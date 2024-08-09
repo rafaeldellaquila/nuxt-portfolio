@@ -1,13 +1,15 @@
 <template>
+  <h1>Hello World About</h1>
   <div>
-    <h1>about page</h1>
+    <button @click="enableCustomLayout">Update layout</button>
   </div>
 </template>
-<!--
-<script lang="ts" setup>
 
+<script setup lang="ts">
+function enableCustomLayout() {
+  setPageLayout('secondary')
+}
+definePageMeta({
+  layout: 'default',
+});
 </script>
-
-<style>
-
-</style> -->
