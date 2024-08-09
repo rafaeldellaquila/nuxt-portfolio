@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   },
   modules: ["@nuxtjs/tailwindcss"],
   tailwindcss: {
-    cssPath: "~/assets/css/tailwind.css",
+    cssPath: ["~/app/assets/css/tailwind.css", { injectPosition: "first" }],
     configPath: "tailwind.config.ts",
   },
 })
