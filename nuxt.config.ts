@@ -5,4 +5,9 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
+  modules: ["@nuxtjs/tailwindcss"],
+  tailwindcss: {
+    cssPath: "~/assets/css/tailwind.css",
+    configPath: "tailwind.config.ts",
+  },
 })
