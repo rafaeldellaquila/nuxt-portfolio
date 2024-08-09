@@ -9,3 +9,9 @@
     </main>
   </div>
 </template>
+
+<script lang="ts" setup>
+useHead({
+  titleTemplate: '%s - dellaquila.dev',
+})
+</script>

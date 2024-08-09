@@ -10,4 +10,10 @@ export default defineNuxtConfig({
     cssPath: ["~/app/assets/css/tailwind.css", { injectPosition: "first" }],
     configPath: "tailwind.config.ts",
   },
+  app: {
+    head: {
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1",
+    },
+  },
 })

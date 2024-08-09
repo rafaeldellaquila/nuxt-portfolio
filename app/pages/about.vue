@@ -12,4 +12,8 @@ function enableCustomLayout() {
 definePageMeta({
   layout: 'default',
 });
+
+useHead({
+  title: 'About',
+})
 </script>
