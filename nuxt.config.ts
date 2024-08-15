@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode"],
   tailwindcss: {
     cssPath: ["~/app/assets/css/tailwind.css", { injectPosition: "first" }],
     configPath: "tailwind.config.ts",
