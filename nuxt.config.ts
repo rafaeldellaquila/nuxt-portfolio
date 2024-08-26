@@ -6,6 +6,9 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode"],
+  colorMode: {
+    classSuffix: "",
+  },
   tailwindcss: {
     cssPath: ["~/app/assets/css/tailwind.css", { injectPosition: "first" }],
     configPath: "tailwind.config.ts",
