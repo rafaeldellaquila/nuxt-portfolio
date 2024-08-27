@@ -1,19 +1,8 @@
 <template>
-  <h1>Hello World About</h1>
-  <div>
-    <button @click="enableCustomLayout">Update layout</button>
-  </div>
+  <article class="prose dark:prose-invert">
+    <ContentDoc path="/about" />
+  </article>
 </template>
 
 <script setup lang="ts">
-function enableCustomLayout() {
-  setPageLayout('secondary')
-}
-definePageMeta({
-  layout: 'default',
-});
-
-useHead({
-  title: 'About',
-})
 </script>
