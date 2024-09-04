@@ -5,7 +5,12 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode", "@nuxt/content"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/color-mode",
+    "@nuxt/content",
+    "@nuxt/image"
+  ],
   colorMode: {
     classSuffix: "",
   },
@@ -19,4 +24,12 @@ export default defineNuxtConfig({
       viewport: "width=device-width, initial-scale=1",
     },
   },
+  content: {
+    highlight: {
+      theme: {
+        default: "vitesse-light",
+        dark: "vitesse-dark"
+      }
+    }
+  }
 })
