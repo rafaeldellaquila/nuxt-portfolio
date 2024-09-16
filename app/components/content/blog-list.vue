@@ -25,7 +25,6 @@ interface Post {
   displayYear?: boolean
   year?: number
 }
-
 const { data } = await useAsyncData('posts',
   () => queryContent("blog")
     .where({ _path: { $ne: '/blog' } })
@@ -33,6 +32,7 @@ const { data } = await useAsyncData('posts',
     .sort({ publishedAt: -1 })
     .find()
 )
+
 const posts = computed<Post[]>(() => {
   if (!data.value) return []
   const result: Post[] = []

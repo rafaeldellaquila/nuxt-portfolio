@@ -3,9 +3,3 @@
     <ContentDoc path="/about" />
   </article>
 </template>
-
-<script setup lang="ts">
-
-</script>
-
-<style></style>

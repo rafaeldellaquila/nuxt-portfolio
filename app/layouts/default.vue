@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto max-w-2xl">
+  <div class="container mx-auto max-w-4xl">
     <header class="flex items-center justify-between mt-5 mb-14">
       <NuxtLink to="/" class="text-xl font-semibold p-2 hover:bg-gray-200">dellaquila.dev</NuxtLink>
       <Menu />

@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h2 class="mb-10">Take a look at my Github projects!</h2>
-
+  <div class="not-prose">
     <section v-if="status === 'pending'">Loading...</section>
     <section v-else-if="status === 'error'">Error: {{ error }}</section>
     <section v-else>
@@ -18,7 +16,6 @@
         </li>
       </ul>
     </section>
-
   </div>
 </template>
 
@@ -32,7 +29,8 @@ interface Repo {
 }
 const { data, status, error } = await useFetch<Repo[]>('https://api.github.com/users/rafaeldellaquila/repos')
 const repos = computed(
-  () => data.value?.filter((repo) => repo.description).sort((a, b) => b.stargazers_count - a.stargazers_count)
+  () => data.value?.filter((repo) => repo.description)
+    .sort((a, b) => b.stargazers_count - a.stargazers_count)
 )
 
 
