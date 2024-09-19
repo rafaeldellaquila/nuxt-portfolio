@@ -5,7 +5,7 @@
     <section v-else>
       <ul class="grid grid-cols-1 gap-4">
         <li v-for="repo in repos" :key="repo.id"
-          class="border border-gray-200 rounded-sm p-4 hover:bg-gray-100  font-mono">
+          class="border border-gray-200 dark:border-gray-700 rounded-sm p-4 hover:bg-gray-100 dark:hover:bg-gray-800 font-mono">
           <a :href="repo.html_url" target="_blank">
             <div class="flex justify-between items-center text-sm">
               <div class="font-bold">{{ repo.name }}</div>

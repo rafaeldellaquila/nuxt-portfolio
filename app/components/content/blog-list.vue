@@ -1,23 +1,31 @@
 <template>
-  <section class="not-prose font-mono">
-    <div class="column text-gray-400">
-      <span>date</span>
-      <span>title</span>
-    </div>
-    <ul v-if="posts">
-      <li v-for="post in posts" :key="post._path">
-        <NuxtLink :to="post._path" class="column hover:bg-gray-100 dark:hover:bg-gray-800">
-          <span :class="{ 'opacity-0': !post.displayYear, 'text-gray-400 dark:text-gray-500': post.displayYear }">
-            {{ post.year }}
-          </span>
-          <span>{{ post.title }}</span>
-        </NuxtLink>
-      </li>
-    </ul>
-  </section>
+  <slot :posts="posts">
+    <section class="not-prose font-mono">
+      <div class="column text-gray-400">
+        <span>date</span>
+        <span>title</span>
+      </div>
+      <ul v-if="posts">
+        <li v-for="post in posts" :key="post._path">
+          <NuxtLink :to="post._path" class="column hover:bg-gray-100 dark:hover:bg-gray-800">
+            <span :class="{ 'opacity-0': !post.displayYear, 'text-gray-400 dark:text-gray-500': post.displayYear }">
+              {{ post.year }}
+            </span>
+            <span>{{ post.title }}</span>
+          </NuxtLink>
+        </li>
+      </ul>
+    </section>
+  </slot>
 </template>
 
 <script lang="ts" setup>
+const props = defineProps({
+  limit: {
+    type: Number,
+    default: null
+  }
+})
 interface Post {
   _path?: string
   title?: string
@@ -26,11 +34,16 @@ interface Post {
   year?: number
 }
 const { data } = await useAsyncData('posts',
-  () => queryContent("blog")
-    .where({ _path: { $ne: '/blog' } })
-    .only(['_path', 'title', 'publishedAt'])
-    .sort({ publishedAt: -1 })
-    .find()
+  () => {
+    const query = queryContent("blog")
+      .where({ _path: { $ne: '/blog' } })
+      .only(['_path', 'title', 'publishedAt'])
+      .sort({ publishedAt: -1 })
+
+    if (props.limit) query.limit(props.limit)
+
+    return query.find()
+  }
 )
 
 const posts = computed<Post[]>(() => {

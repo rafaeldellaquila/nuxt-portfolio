@@ -15,13 +15,18 @@ export default defineNuxtConfig({
     classSuffix: "",
   },
   tailwindcss: {
-    cssPath: ["~/app/assets/css/tailwind.css", { injectPosition: "first" }],
+    cssPath: ["/assets/css/tailwind.css", { injectPosition: "first" }],
     configPath: "tailwind.config.ts",
   },
+  css: ["/assets/css/main.css"],
   app: {
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
+    },
+    pageTransition: {
+      name: "page",
+      mode: "out-in",
     },
   },
   content: {
