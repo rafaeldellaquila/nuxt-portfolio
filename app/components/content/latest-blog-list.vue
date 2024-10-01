@@ -1,5 +1,5 @@
 <template>
-  <BlogList v-slot="{ posts }" :limit="limit">
+  <BlogList v-slot="{ posts }" :limit="Number(limit)">
     <div v-for="post in posts" :key="post._path">
       <NuxtLink :to="post._path"> {{ post.title }} </NuxtLink>
     </div>
@@ -9,7 +9,7 @@
 <script lang="ts" setup>
 defineProps({
   limit: {
-    type: Number,
+    type: String,
     default: null
   }
 })
