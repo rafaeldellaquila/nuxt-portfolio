@@ -36,5 +36,10 @@ export default defineNuxtConfig({
         dark: "vitesse-dark"
       }
     }
+  },
+  nitro: {
+    prerender: {
+      routes: ['/sitemap.xml']
+    }
   }
 })
